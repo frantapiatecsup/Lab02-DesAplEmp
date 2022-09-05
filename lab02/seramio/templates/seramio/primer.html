@@ -1,0 +1,73 @@
+<h2>Primer Ejercicio </h2>
+<form action="{% url 'calcular:ejer1' %}" method="post">
+    {% csrf_token %}
+
+
+
+    <script>
+       function vol(){
+        var signio = document.getElementById('op').value;
+        if (signio == "+"){
+            var numero1 = document.getElementById('n1').value;
+            var numero2 = document.getElementById('n2').value;
+            var resultado = Number(numero1) + Number(numero2);
+            document.getElementById('resultado').value= resultado;
+
+        }
+        else if (signio == "-"){
+            var numero1 = document.getElementById('n1').value;
+         var numero2 = document.getElementById('n2').value;
+         var resultado = numero1 - numero2;
+         document.getElementById('resultado').value= resultado;
+
+        }
+        else if(signio == "/"){
+            var numero1 = document.getElementById('n1').value;
+         var numero2 = document.getElementById('n2').value;
+         var resultado = numero1 / numero2;
+         document.getElementById('resultado').value= resultado;
+
+        }
+        else{
+            var numero1 = document.getElementById('n1').value;
+         var numero2 = document.getElementById('n2').value;
+         var resultado = numero1 * numero2;
+         document.getElementById('resultado').value= resultado;
+        }
+       } 
+       
+    
+</script>
+
+
+
+
+
+Operacion a realizar:
+<select name="operaciones" id="op">
+    <option value="+" >Suma</option>
+    <option value="-" selected="selected">Resta</option>
+    <option value="/">Division</option>
+    <option value="*">Multiplicacion</option>
+</select> <br>
+
+
+
+
+
+
+    <br>
+    Ingrese el primer numero:
+    <input  type="number" name="n1" id="n1" onkeyup="vol();" ><br>
+    <br>
+    Ingrese el segundo numero:
+    <input type="number" name="n2" id="n2" onkeyup="vol();"><br>
+   
+    <br>
+  
+
+    <input  type="number" name="resultado" id="resultado" step="0.01"><br>
+
+
+    <input type="submit" name="calcular" value="Calcular">
+</form>

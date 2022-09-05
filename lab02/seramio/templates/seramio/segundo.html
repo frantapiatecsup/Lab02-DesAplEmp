@@ -1,0 +1,38 @@
+<h2> {{ titulo}}</h2>
+
+<form action="{% url 'cilindro:ejer2' %}" method="post">
+
+    {% csrf_token %}
+    <script>
+        function vol(){
+          var radio = document.getElementById('radio').value;
+          var altura = document.getElementById('altura').value;
+          var pi= 3.14
+          var volumen= pi* (radio* radio)*altura 
+          document.getElementById('resultado').value= volumen;
+    
+        }
+        </script>
+ 
+
+
+    <br>
+    Ingrese el diametro(en metros):
+    <input  type="number" name="n1" id="radio"onkeyup="vol();"><br>
+    <br>
+    Ingrese la altura (en metros):
+    <input type="number" name="n2" id="altura"onkeyup="vol();"><br>
+   
+    <br>
+    <div hidden>
+        <input type="number" name="resultado" id="resultado" step="0.01"><br>
+    </div>
+
+    
+    <input type="submit" name="ejer2" value="Calcular" >
+
+
+
+    
+    
+</form>
